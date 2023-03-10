@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Web4dotnet.Models.QLLuat>
+
+@{
+    ViewBag.Title = "Quản Lý Điều/Khoản ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản Lý Điều/Khoản</h2>
+
+<p>
+    @Html.ActionLink("Thêm Điều/Khoản mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Chuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NDChuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NDDieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Khoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NDKhoan)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NDChuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NDDieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Khoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NDKhoan)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Hiển thị", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

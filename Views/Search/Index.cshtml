@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Web4dotnet.Models.QLLuat>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+    <h2>Tìm kiếm Luật An Ninh Mạng</h2>
+
+    <p>
+        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+        {
+            <label>Tìm kiếm theo Chương/Điều/Khoản</label>
+            <input type="text" name="search" />
+            <input type="submit" value="Tìm kiếm" name="submit" />
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Chuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NDChuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NDDieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Khoan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NDKhoan)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NDChuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dieu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NDDieu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Khoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NDKhoan)
+                </td>
+            </tr>
+        }
+    </table>
+</center>
